@@ -1,11 +1,13 @@
 package com.example.myapplication
 
 //import android.R
+import android.media.Image
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.math.PI
@@ -27,6 +29,7 @@ class MainActivity : AppCompatActivity() {
             val NewY : TextView = findViewById(R.id.NewY)
             val oX1 : TextView = findViewById(R.id.oldX)
             val oY1 : TextView = findViewById(R.id.oldY)
+            val img : ImageView = findViewById(R.id.imageView)
 
             // Do something in response to button click
             val X : EditText = findViewById(R.id.OriginX)
@@ -42,6 +45,7 @@ class MainActivity : AppCompatActivity() {
             val x1 : Float = X1.text.toString().toFloat()
             val y1 : Float = Y1.text.toString().toFloat()
             val t : Float = T.text.toString().toFloat()
+            val irot : Float = img.rotation.toString().toFloat()
             val origin = arrayOf<Float>(ox1, oy1)
             Log.i("DEBUG", origin[0].toString())
             Log.i("DEBUG", origin[1].toString())
@@ -71,6 +75,7 @@ class MainActivity : AppCompatActivity() {
 
             oX1.setText(DecimalFormat("#.##").format(absv[0]).toString())
             oY1.setText(DecimalFormat("#.##").format(absv[1]).toString())
+            img.setRotation(irot+t)
         }
 
     }
